@@ -1,5 +1,12 @@
 package virtual_pet;
 
-public class Virtual_Pet_Test {
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
+public class Virtual_Pet_Test {
+	@Test
+	public void hungerShouldIncrease() {
+		
+	}
+	
 }
