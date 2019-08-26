@@ -4,38 +4,92 @@ import java.util.Scanner;
 
 public class Virtual_Pet_App {
 	static Scanner input = new Scanner(System.in);
+	static Virtual_Pet pet = new Virtual_Pet();
+	static boolean isRunning = true;
 
+	public static void displayStatsMenu() {
+		
+		//Name           
+		// _______________
+		//|               |
+		//|Hunger         |
+		//|Thirst         |
+		//|Boredom        |
+		//|Tiredness      |
+		//|_______________|
+		pet.getTimePassed();
+		pet.getNameOfPet();
+		System.out.println("");
+		System.out.println(" _______________");
+		System.out.println("|               |");
+		System.out.print("|");
+		pet.getHungerLevel();
+		System.out.print("      |");
+		System.out.println("");
+		System.out.print("|");
+		pet.getThirstLevel();
+		System.out.print("      |");
+		System.out.println("");
+		System.out.print("|");
+		pet.getBoredomLevel();
+		System.out.print("     |");
+		System.out.println("");
+		System.out.print("|");
+		pet.getTirednessLevel();
+		System.out.print("   |");
+		System.out.println("");
+		System.out.println("|_______________|");
+	}
+	public static void displayInteractionMenu() {
+		
+		System.out.println("What would you like to do?");
+		System.out.print("1: Feed ");
+		pet.getNameOfPet();
+		System.out.println("");
+		System.out.print("2: Water ");
+		pet.getNameOfPet();
+		System.out.println("");
+		System.out.print("3: Play with ");
+		pet.getNameOfPet();
+		System.out.println("");
+		System.out.print("4: Have ");
+		pet.getNameOfPet();
+		System.out.println(" sleep");
+		System.out.println("5: Do nothing");
+		System.out.println("6: QUIT");
+		int interaction = input.nextInt();
+		switch(interaction) {
+		case 1:
+			pet.decreaseHungerLevel();
+			break;
+		case 2:
+			pet.decreaseThirstLevel();
+			break;
+		case 3:
+			pet.decreaseBoredomLevel();
+			break;
+		case 4:
+			pet.decreaseTirednessLevel();
+			break;
+		case 5:
+			pet.increaseTimePassed();
+			break;
+		case 6:
+			isRunning = false;
+			default:
+				pet.increaseTimePassed();
+		}
+		
+	}
+	
 	public static void main(String[] args) {
-		Virtual_Pet pet = new Virtual_Pet();
-		boolean isRunning = true;
+		System.out.println("Enter your pet's name: ");
+		String name = input.nextLine();
+		pet.setNameOfPet(name);		
 		while (isRunning) 
 		{
-			pet.getTimePassed();
-			pet.getHungerLevel();
-			System.out.println("");
-			pet.increaseTimePassed();
-			pet.increaseHungerLevel();
-			if(pet.hungerLevel > 0) {
-				
-				System.out.println("Would you like to feed your animal? yes/no");
-				String interact = input.next();
-				if(interact.contentEquals("yes")) {
-					pet.decreaseHungerLevel();
-					System.out.println("");
-				}
-				else {
-					System.out.println("did not feed animal");
-				}
-				
-			}
-			System.out.println("would you like to quit? yes/no");
-			String quitGame = input.next();
-			if(quitGame.contentEquals("yes")) {
-				isRunning = false;
-			}
-			
+			displayStatsMenu();
+			displayInteractionMenu();	
 		}
-
 	}
-
 }
