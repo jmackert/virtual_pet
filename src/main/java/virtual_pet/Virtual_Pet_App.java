@@ -73,6 +73,7 @@ public class Virtual_Pet_App {
 			break;
 		case 5:
 			pet.increaseTimePassed();
+			System.out.println("You did nothing");
 			break;
 		case 6:
 			isRunning = false;

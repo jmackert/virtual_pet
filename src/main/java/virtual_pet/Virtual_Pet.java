@@ -32,11 +32,11 @@ public class Virtual_Pet {
 		System.out.print("Hunger: " + hungerLevel);
 	}
 	public void decreaseHungerLevel() {
-		System.out.println(nameOfPet +" has been fed");
 		hungerLevel = 0;
 		increaseThirstLevel();
 		increaseTimePassed();
 		increaseTirednessLevel();
+		System.out.println("You fed " + nameOfPet);
 	}
 	public void increaseThirstLevel() {
 		thirstLevel++;
@@ -51,6 +51,7 @@ public class Virtual_Pet {
 		thirstLevel = 0;
 		increaseTimePassed();
 		increaseHungerLevel();
+		System.out.println("You gave " + nameOfPet + " something to drink");
 	}
 	public void increaseBoredomLevel() {
 		boredomLevel++;
@@ -67,6 +68,7 @@ public class Virtual_Pet {
 		increaseHungerLevel();
 		increaseTimePassed();
 		increaseTirednessLevel();
+		System.out.println("You played with " + nameOfPet);
 	}
 	public void getTirednessLevel() {
 		if(timePassed % 2 == 0) {
@@ -83,5 +85,6 @@ public class Virtual_Pet {
 		increaseBoredomLevel();
 		increaseHungerLevel();
 		increaseThirstLevel();
+		System.out.println("You had " + nameOfPet + " go to sleep.");
 	}
 }
